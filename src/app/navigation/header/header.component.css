@@ -1,0 +1,7 @@
+.nav-items{list-style: none; margin: 1.5em;}
+li{padding-left: 1em;}
+.menu{padding-left: 3em;}
+a{color: white; padding: 1em; text-decoration: none;vertical-align: middle;}
+.mat-toolbar.mat-primary{background-color: black;}
+.spe{color: brown; vertical-align: middle;}
+.spec{color: white; vertical-align: middle;}

@@ -1,0 +1,67 @@
+
+<section>
+  <form fxLayout="column" fxLayoutAlign="center center" #form="ngForm" (submit)="onSubmit(form)" fxLayoutGap="1.5em">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+    <input type="hidden" name="borrower" #id="ngModel" [(ngModel)]="service.formData.borrower">
+    
+      
+
+    <mat-form-field hintLabel="Type d'objet">
+      <input 
+          type="text" 
+          placeholder="Indiquez le type d'objet" 
+          matInput ngModel
+          [(ngModel)]="service.formData.name"
+          name="name"
+          #name="ngModel"
+          required
+      >
+  </mat-form-field>
+
+      <mat-form-field hintLabel="Titre">
+          <input 
+              type="text" 
+              placeholder="Titre" 
+              matInput ngModel
+              [(ngModel)]="service.formData.title" 
+              name="title"
+              #title="ngModel"
+              required
+          >
+      </mat-form-field>
+      <mat-form-field hintLabel="Propriétaire">
+          <input 
+              type="text" 
+              placeholder="Propriétaire" 
+              matInput ngModel 
+              [(ngModel)]="service.formData.owner"
+              name="owner"
+              #borrower="ngModel"
+              required
+          >
+      </mat-form-field>
+      
+
+      <mat-form-field>
+        
+           <input  
+              type="date"
+              placeholder="Date d'emprunt"
+              matInput ngModel 
+              [(ngModel)]="service.formData.date"
+              name="date"
+              #date="ngModel"
+             
+              required
+          >
+          
+      </mat-form-field> 
+
+      
+             
+
+
+      <button *ngIf="!isLoading" [disabled]="form.invalid" type="submit" mat-raised-button color="primary">ENREGISTRER</button>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</section>

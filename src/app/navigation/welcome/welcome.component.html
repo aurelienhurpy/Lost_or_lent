@@ -1,0 +1,17 @@
+<main class="welcome" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="center center" fxLayoutGap.gt-md="40px" >
+    <section class="welcome">
+        <h3>Objets prêtés</h3>
+        <p>Retrouvez à qui et quand vous avez prêtez un objet !</p>
+        <a *ngIf="!isAuth" routerLink="/employees"><button type="submit" mat-raised-button color="warn">Commencer</button></a>
+    </section>
+    <section class="welcome">
+        <h3>Objets empruntés</h3>
+        <p>Retrouvez à qui et quand vous avez empruntez un objet</p>
+        <a *ngIf="!isAuth" routerLink="/borrowed"><button type="submit" mat-raised-button color="accent">Commencer</button></a>
+    </section>
+    
+    
+</main>
+
+
+

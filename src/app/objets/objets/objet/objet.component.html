@@ -1,0 +1,85 @@
+<!-- version html
+<h1 class="display-4">EMP. Register</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+  <div class="form-group">
+    <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" class="form-control" placeholder="Full name" required>
+    <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <input name="position" #position="ngModel" [(ngModel)]="service.formData.position" class="form-control" placeholder="Position">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formData.empCode" class="form-control" placeholder="Emp. code">
+    </div>
+    <div class="form-group  col-md-6">
+      <input name="mobile" #mobile="ngModel" [(ngModel)]="service.formData.mobile" class="form-control" placeholder="Mobile">
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">SUBMIT</button>
+  </div>
+</form> -->
+
+<!-- version angular material -->
+<section>
+  <form fxLayout="column" fxLayoutAlign="center center" #form="ngForm" (submit)="onSubmit(form)" fxLayoutGap="1.5em">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+    <input type="hidden" name="owner" #id="ngModel" [(ngModel)]="service.formData.owner">
+
+    <mat-form-field hintLabel="Type d'objet">
+      <input 
+          type="text" 
+          placeholder="Indiquez le type d'objet" 
+          matInput ngModel
+          [(ngModel)]="service.formData.name"
+          name="name"
+          #name="ngModel"
+          required
+      >
+    </mat-form-field>
+
+      <mat-form-field hintLabel="Titre">
+          <input 
+              type="text" 
+              placeholder="Titre" 
+              matInput ngModel
+              [(ngModel)]="service.formData.title" 
+              name="title"
+              #title="ngModel"
+              required
+          >
+      </mat-form-field>
+      <mat-form-field hintLabel="Emprunteur">
+          <input 
+              type="text" 
+              placeholder="Emprunteur" 
+              matInput ngModel 
+              [(ngModel)]="service.formData.borrower"
+              name="borrower"
+              #borrower="ngModel"
+              required
+          >
+      </mat-form-field>
+      
+      <mat-form-field>
+        
+           <input  
+              type="date"
+              placeholder="Date d'emprunt"
+              matInput ngModel 
+              [(ngModel)]="service.formData.date"
+              name="date"
+              #date="ngModel"
+              maxdate
+              required
+          >
+          
+      </mat-form-field>
+
+      <button *ngIf="!isLoading" [disabled]="form.invalid" type="submit" mat-raised-button color="primary">ENREGISTRER</button>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</section>
+

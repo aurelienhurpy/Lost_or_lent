@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" class="tool">
+        <div fxHide.gt-xs>
+            <button class="sidemenu" (click)="onToggleSidenav()"><mat-icon>menu</mat-icon></button>
+        </div>
+        
+        <div class="menu"><mat-icon class="spe">search</mat-icon><a routerLink="/">PRETE OU PERDU ?</a></div>
+        
+        <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+            <ul fxLayout class="nav-items" fxLayoutGap="0.8em">
+                <li *ngIf="!isAuth">
+                    <a routerLink="/signup">S'inscrire</a>
+                </li>
+                <li *ngIf="!isAuth">
+                    <a routerLink="/login">Se connecter</a>
+                </li>
+                <li *ngIf="isAuth">
+                    <a routerLink="/employees"><mat-icon class="spe">person</mat-icon><mat-icon class="spec">arrow_forward</mat-icon><mat-icon class="spec">person</mat-icon> Objets prêtés</a>
+                 </li>
+                 <li *ngIf="isAuth">
+                    <a routerLink="/borrowed"><mat-icon class="spe">person</mat-icon><mat-icon class="spec">arrow_back</mat-icon><mat-icon class="spec">person</mat-icon> Objets empruntés</a>
+                 </li>
+                 <li *ngIf="isAuth">
+                     <a (click)="onLogout()" style="cursor:pointer">Déconnexion</a>
+                 </li>
+            </ul>
+        </div>
+    </mat-toolbar>

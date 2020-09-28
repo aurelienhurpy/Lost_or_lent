@@ -1,0 +1,30 @@
+<section>
+        <form fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="onSubmit()" [formGroup]="loginForm" fxLayoutGap="1.5em">
+        <h1>Connexion</h1>
+           
+        
+        <mat-form-field hintLabel="Votre email">
+                <input 
+                    type="mail" 
+                    placeholder="Email" 
+                    matInput  
+                    formControlName="email"
+                >
+            </mat-form-field>
+
+     
+        <mat-form-field hintLabel="Votre mot de passe">
+                <input 
+                    type="password" 
+                    placeholder="Mot de passe" 
+                    matInput 
+                    formControlName="password"
+                >
+                
+            </mat-form-field>
+
+        
+        <button *ngIf="!isLoading" [disabled]="loginForm.invalid" type="submit" mat-raised-button color="primary">Connexion</button>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </form>
+</section>

@@ -1,0 +1,58 @@
+<section>
+    <form fxLayout="column" fxLayoutAlign="center center" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)" fxLayoutGap="1.5em">
+        <h1>Inscription</h1>
+        <mat-form-field hintLabel="Mettre un email valide">
+            <input 
+                type="mail" 
+                placeholder="Votre email" 
+                matInput ngModel 
+                name="email"
+                #emailInput="ngModel"
+                email
+                required
+            >
+            <mat-error *ngIf="!emailInput.hasError('required')">Email non valide</mat-error>
+            <mat-error *ngIf="emailInput.hasError('required')">Ce champ doit être renseigné</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Au moins 6 caractères">
+            <input 
+                type="password" 
+                placeholder="Votre mot de passe" 
+                matInput ngModel 
+                name="password"
+                #passwordInput="ngModel"
+                required
+                minlength="6"
+            >
+            <mat-error *ngIf="passwordInput.hasError('required')">Ce champ doit être renseigné</mat-error>
+            <mat-error *ngIf="passwordInput.hasError('minlength')">Le mot de passe doit comporter au moins 6 caractères</mat-error>
+            <mat-hint align="end">{{ passwordInput.value?.length }}/6</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+                matInput 
+                [matDatepicker]="picker" 
+                placeholder="Date de naissance"
+                [max]="maxDate"
+                name="birthDate"
+                ngModel
+                required
+            >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox 
+                ngModel
+                name="terms"
+                required
+                color="primary"
+            >
+                Accepter les conditions générales
+            </mat-checkbox>
+        
+
+
+        <button *ngIf="!isLoading" [disabled]="signupForm.invalid" type="submit" mat-raised-button color="primary">S'inscrire</button>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </form>
+</section>

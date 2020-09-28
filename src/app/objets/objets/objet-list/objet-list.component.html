@@ -1,0 +1,54 @@
+<!-- version html -->
+<table class="table table-hover">
+  <thead>
+    <th>Objet</th>
+    <th>Titre</th>
+    <th>Emprunteur</th>
+    <th>Date</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of list">
+      <td (click)="onEdit(emp)">{{emp.name}}</td>
+      <td (click)="onEdit(emp)">{{emp.title}}</td>
+      <td (click)="onEdit(emp)">{{emp.borrower}}</td>
+      <td (click)="onEdit(emp)">{{emp.date | date: 'dd/MM/yyyy' }}</td>
+      <td><a class="btn text-danger" (click)="onDelete(emp.id)"><i class="fa fa-trash"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- version angular material -->
+<!-- <div fxLayout="column" fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%">
+      <input type="text" matInput placeholder="Filtrer" (keyup)="doFilter($event.target.value)">
+  </mat-form-field>
+</div>
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Titre</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.title}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="borrower">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Emprunteur</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.borrower}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.date| date:'dd/MM/yy' }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+      <mat-cell *matCellDef="let element" ><a class="btn text-danger" (click)="onDelete(element)"><i class="fa fa-trash"></i></a></mat-cell>
+  </ng-container>
+ 
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+  </mat-table>
+  
+   -->
